@@ -14,3 +14,6 @@
     background: #fff;
     border-radius: 5px;
 }
+.navbar {
+    z-index: 1023;
+}

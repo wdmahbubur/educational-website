@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import learningImage from '../../images/Online-learning.gif';
-import aboutImage from '../../images/Online-learning-rafiki.png';
 import Course from '../Course/Course';
+import useCourse from '../hooks/useCourse';
+import WelcomeAbout from '../WelcomeAbout/WelcomeAbout';
 
 const Home = () => {
+
+    const [courses] = useCourse();
+
+    const [popularCourses, setPopularCourses] = useState([]);
+
+    useEffect(() => {
+        const ppCourse = courses.filter(course => course.rating > 4);
+        setPopularCourses(ppCourse);
+    }, [courses])
+
     return (
         <div>
             <Container>
@@ -21,34 +32,20 @@ const Home = () => {
                 </Row>
             </Container>
             <div className="bg-light">
-                <Container>
-                    <Row >
-                        <Col md={12} className="text-center pt-5">
-                            <h4 className="font-monospace text-light-gray">Monicu.Edu Is The Best Learning Platform</h4>
-                            <h1 className="fw-bold">Welcome to <span className="text-primary">Monicu.Edu</span></h1>
-                        </Col>
-                    </Row>
-                    <Row className="align-items-center">
-                        <Col md={6}>
-                            <img src={aboutImage} alt="" className="img-fluid" />
-                        </Col>
-                        <Col md={6}>
-                            <h2>Welcome to <span className="text-primary">Monicu</span> as a Best Learning Platform</h2>
-                            <p className="my-4 lh-3">We understand that each of our students is a uniquely talented individual. Within our supportive community, students are facilitated to develop positive relationships and grab the opportunity to realize their individual potential to the full.</p>
-                            <Button variant="primary">Learn More</Button>
-                        </Col>
-                    </Row>
-                </Container>
+                <WelcomeAbout></WelcomeAbout>
             </div>
-            <Container>
-                <Row className="mt-5 mb-3">
+            <Container className="py-5">
+                <Row className="my-5">
                     <Col md={12} className="text-center">
                         <h4 className="font-monospace text-light-gray">Why Choose Us</h4>
                         <h1 className="fw-bold">Post Popular <span className="text-primary">Courses</span></h1>
                     </Col>
                 </Row>
-                <Row xs={1} md={2} className="g-4">
-                    <Course></Course>
+                <Row xs={1} md={3} className="g-4">
+                    {
+                        popularCourses.map(course => <Course key={course.id} course={course}></Course>)
+                    }
+
                 </Row>
             </Container>
 

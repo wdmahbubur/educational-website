@@ -1,0 +1,12 @@
+.card-img-top {
+    height: 250px;
+    width: 300px;
+    margin: 0 auto;
+}
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+.icon-color {
+    color: rgb(236, 192, 78);
+}
