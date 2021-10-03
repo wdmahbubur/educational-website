@@ -1,0 +1,16 @@
+.nav-item-link {
+    color: #fff;
+    margin: 0 4px;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+.nav-item-link:hover {
+    color: #cccccc;
+}
+.nav-item-link-active {
+    color: #1d59ff;
+    background: #fff;
+    border-radius: 5px;
+}
