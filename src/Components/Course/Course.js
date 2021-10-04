@@ -15,7 +15,7 @@ const Course = (props) => {
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Text className="d-flex justify-content-between align-items-center">
-                        <h6 className="font-monospace">By: {instructor_name}</h6>
+                        <h6 className="font-monospace">{instructor_name}</h6>
                         <h6 className="bg-primary p-2 rounded text-white">{category}</h6>
                     </Card.Text>
 
