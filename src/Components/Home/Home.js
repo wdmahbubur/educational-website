@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import learningImage from '../../images/Online-learning.gif';
 import Course from '../Course/Course';
 import useCourse from '../hooks/useCourse';
 import WelcomeAbout from '../WelcomeAbout/WelcomeAbout';
 
 const Home = () => {
-
+    // Use Custom hooks for load course data from json
     const [courses] = useCourse();
-
+    // store popular course
     const [popularCourses, setPopularCourses] = useState([]);
+    // react router history for navigation 
+    let history = useHistory();
 
+    // check popular course (if course rating > 4 )
     useEffect(() => {
         const ppCourse = courses.filter(course => course.rating > 4);
         setPopularCourses(ppCourse);
     }, [courses])
 
+    // handle more course button
+    const moreCourses = () => {
+        history.push('/courses')
+    }
     return (
         <div>
+            {/* Top Section of Home Page */}
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
@@ -31,9 +40,11 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
+            {/* Welcome about component */}
             <div className="bg-light">
                 <WelcomeAbout></WelcomeAbout>
             </div>
+            {/* Show popular courses */}
             <Container className="py-5">
                 <Row className="my-5">
                     <Col md={12} className="text-center">
@@ -42,13 +53,17 @@ const Home = () => {
                     </Col>
                 </Row>
                 <Row xs={1} md={3} className="g-4">
+                    {/* show popular course using card layout */}
                     {
                         popularCourses.map(course => <Course key={course.id} course={course}></Course>)
                     }
 
                 </Row>
+                {/* More Course button to all course */}
+                <div className="mt-5 text-center">
+                    <Button variant="primary" onClick={moreCourses}>More Courses</Button>
+                </div>
             </Container>
-
         </div>
     );
 };

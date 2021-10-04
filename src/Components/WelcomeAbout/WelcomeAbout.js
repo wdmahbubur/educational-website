@@ -5,6 +5,7 @@ import aboutImage from '../../images/Online-learning-rafiki.png';
 
 const WelcomeAbout = () => {
     return (
+        // Welcome about component using in the multiple component
         <Container>
             <Row>
                 <Col md={12} className="text-center pt-5">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormControl, Nav, Navbar, Button, Container } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Header.css'
 const Header = () => {
@@ -31,15 +31,7 @@ const Header = () => {
 
                     </Nav>
                     {/* Search Course */}
-                    <Form className="d-flex">
-                        <FormControl
-                            type="search"
-                            placeholder="Search Course"
-                            className="mr-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-light">Search</Button>
-                    </Form>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>

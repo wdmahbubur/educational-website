@@ -9,12 +9,13 @@ import './Course.css';
 const Course = (props) => {
     const { course_name, duration, img, instructor_name, price, rating, category } = props.course;
     return (
+        // Show Course by card layout 
         <Col>
             <Card className="h-100">
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Text className="d-flex justify-content-between align-items-center">
-                        <h6 className="font-monospace">{instructor_name}</h6>
+                        <h6 className="font-monospace">By: {instructor_name}</h6>
                         <h6 className="bg-primary p-2 rounded text-white">{category}</h6>
                     </Card.Text>
 
@@ -30,7 +31,6 @@ const Course = (props) => {
                                 readonly
                             />({rating})
                         </div>
-
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>

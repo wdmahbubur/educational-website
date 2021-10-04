@@ -23,8 +23,8 @@ const Footer = () => {
                     <Col md={3}>
                         <h4>Contact Us</h4>
                         <p>58 Howard Street #2 San Francisco, CA 94105
-                            info@example.com
-                            (+612) 2531 5600</p>
+                            info@monicu.edu
+                            <br /> (+612) 2531 5600</p>
                     </Col>
                     <Col md={3}>
                         <h4>Newsletter</h4>
