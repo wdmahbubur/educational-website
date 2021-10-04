@@ -1,6 +1,6 @@
 # Educational Website
 
-Website Live Preview:
+Website Live Preview: https://monicu-edu-react-wdmahbubur.netlify.app/
 
 # Project Details
 
